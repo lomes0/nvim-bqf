@@ -68,6 +68,9 @@ function FloatWin:build(hHeight, vHeight)
     local POS = self.wpos.POS
     local relPos, absPos = unpack(self.wpos.getPos(self.qwinid, self.pwinid))
 
+    relPos = POS.LEFT_FAR
+    absPos = POS.LEFT_FAR
+
     local qinfo = utils.getWinInfo(self.qwinid)
     local width, height, col, row, anchor
     if relPos == POS.ABOVE or relPos == POS.BELOW or absPos == POS.TOP or absPos == POS.BOTTOM then
@@ -124,7 +127,7 @@ function FloatWin:build(hHeight, vHeight)
         focusable = self.focusable,
         border = self.border,
         anchor = anchor,
-        width = self.width,
+        width = math.floor(self.width / 2),
         height = self.height,
         col = col,
         row = row,

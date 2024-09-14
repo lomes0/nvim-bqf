@@ -222,6 +222,8 @@ local function doEdit(qwinid, idx, close, action)
     if utils.isUnNameBuf(lastBufnr, lastBufname, lastBufoff) then
         api.nvim_buf_delete(lastBufnr, {})
     end
+
+    api.nvim_set_current_win(qwinid)
     return true
 end
 
